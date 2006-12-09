@@ -8,30 +8,30 @@ Version:	0.4
 Release:	0.2
 License:	PHP
 Group:		Development/Languages/PHP
-Source0:	http://dl.sourceforge.net/sourceforge/php-sqlite3/%{_modname}-%{version}.tgz
+Source0:	http://dl.sourceforge.net/php-sqlite3/%{_modname}-%{version}.tgz
 # Source0-md5:	fc15ace3f5fd0aac0186745d6cff8a70
 Patch0:		%{name}-tsrm.patch
 Patch1:		%{name}-new-functions.patch
 URL:		http://php-sqlite3.sourceforge.net/pmwiki/pmwiki.php
 BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	sqlite3-devel >= 3.3.5
 BuildRequires:	rpmbuild(macros) >= 1.322
+BuildRequires:	sqlite3-devel >= 3.3.5
 %{?requires_php_extension}
 Requires:	%{_sysconfdir}/conf.d
 Obsoletes:	php-pear-%{_modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-%{_modname} is a C library that implements an embeddable SQL database
-engine. Programs that link with the %{_modname} library can have SQL
+sqlite3 is a C library that implements an embeddable SQL database
+engine. Programs that link with the sqlite3 library can have SQL
 database access without running seperate RDBMS process. This extension
-allows you to access %{_modname} databases from within PHP.
+allows you to access sqlite3 databases from within PHP.
 
 %description -l pl
-%{_modname} jest napisan± w C bibliotek± implementuj±c± osadzon± bazê
-SQL. Programy konsolidowane z %{_modname} mog± mieæ dostêp do bazy SQL
-bez potrzeby uruchamiana kolejnego procesu RDBMS. To rozszerzenie
-pozwala na dostêp do baz SQLite z poziomu PHP.
+sqlite3 jest napisan± w C bibliotek± implementuj±c± osadzon± bazê SQL.
+Programy konsolidowane z sqlite3 mog± mieæ dostêp do bazy SQL bez
+potrzeby uruchamiana kolejnego procesu RDBMS. To rozszerzenie pozwala
+na dostêp do baz SQLite z poziomu PHP.
 
 %prep
 %setup -q -c
