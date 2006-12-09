@@ -5,12 +5,13 @@ Summary:	%{_modname} - database bindings
 Summary(pl):	%{_modname} - powi±zania z baz± danych
 Name:		php-%{_modname}
 Version:	0.4
-Release:	0.1
+Release:	0.2
 License:	PHP
 Group:		Development/Languages/PHP
 Source0:	http://dl.sourceforge.net/sourceforge/php-sqlite3/%{_modname}-%{version}.tgz
 # Source0-md5:	fc15ace3f5fd0aac0186745d6cff8a70
 Patch0:		%{name}-tsrm.patch
+Patch1:		%{name}-new-functions.patch
 URL:		http://php-sqlite3.sourceforge.net/pmwiki/pmwiki.php
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	sqlite3-devel >= 3.3.5
@@ -36,6 +37,7 @@ pozwala na dostêp do baz SQLite z poziomu PHP.
 %setup -q -c
 cd %{_modname}-%{version}
 %patch0 -p1
+%patch1 -p0
 
 %build
 cd %{_modname}-%{version}
