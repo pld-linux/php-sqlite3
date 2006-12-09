@@ -1,0 +1,21 @@
+diff -urN sqlite3-0.4.org/php_sqlite3.c sqlite3-0.4/php_sqlite3.c
+--- sqlite3-0.4.org/php_sqlite3.c	2006-03-28 17:17:53.000000000 +0200
++++ sqlite3-0.4/php_sqlite3.c	2006-12-09 23:17:03.000000000 +0100
+@@ -302,8 +302,7 @@
+     add_next_index_string (z_col_vals, col_names[n], 1);        
+   }
+ 
+-  /* do we need this ?? - bruno */  
+-   /*  TSRMSLS_FETCH(); */
++  TSRMLS_FETCH();
+   
+   if (call_user_function_ex(CG(function_table), NULL, func_name, &func_retval, 2, func_params, 0,  NULL TSRMLS_CC ) != SUCCESS)
+   {
+@@ -861,6 +860,7 @@
+     z_cb_params[n] = z_param;    
+   }
+   
++  TSRMLS_FETCH();
+   /*
+    * now call the user function ...
+    */
