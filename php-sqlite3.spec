@@ -10,6 +10,7 @@ License:	PHP
 Group:		Development/Languages/PHP
 Source0:	http://dl.sourceforge.net/sourceforge/php-sqlite3/%{_modname}-%{version}.tgz
 # Source0-md5:	fc15ace3f5fd0aac0186745d6cff8a70
+Patch0:		%{name}-tsrm.patch
 URL:		http://php-sqlite3.sourceforge.net/pmwiki/pmwiki.php
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	sqlite3-devel >= 3.3.5
@@ -33,6 +34,8 @@ pozwala na dostêp do baz SQLite z poziomu PHP.
 
 %prep
 %setup -q -c
+cd %{_modname}-%{version}
+%patch0 -p1
 
 %build
 cd %{_modname}-%{version}
@@ -49,9 +52,9 @@ install -d $RPM_BUILD_ROOT{%{_sysconfdir}/conf.d,%{extensionsdir}}
 %{__make} -C %{_modname}-%{version} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT
 
-cat <<'EOF' > $RPM_BUILD_ROOT%{_sysconfdir}/conf.d/%{_smodname}.ini
+cat <<'EOF' > $RPM_BUILD_ROOT%{_sysconfdir}/conf.d/%{_modname}.ini
 ; Enable %{_modname} extension module
-extension=%{_smodname}.so
+extension=%{_modname}.so
 EOF
 
 %clean
@@ -69,7 +72,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{_modname}-%{version}/README %{_modname}-%{version}/TODO %{_modname}-%{version}/CREDITS
-%doc %{_modname}-%{version}/sqlite.php %{_modname}-%{version}/tests
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/conf.d/%{_smodname}.ini
-%attr(755,root,root) %{extensionsdir}/%{_smodname}.so
+%doc %{_modname}-%{version}/README %{_modname}-%{version}/ChangeLog
+%doc %{_modname}-%{version}/examples/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/conf.d/%{_modname}.ini
+%attr(755,root,root) %{extensionsdir}/%{_modname}.so
