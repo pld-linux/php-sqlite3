@@ -1,6 +1,6 @@
 %define		_modname	sqlite3
 Summary:	%{_modname} - database bindings
-Summary(pl):	%{_modname} - powi±zania z baz± danych
+Summary(pl.UTF-8):   %{_modname} - powiÄ…zania z bazÄ… danych
 Name:		php-%{_modname}
 Version:	0.4
 Release:	0.2
@@ -25,11 +25,11 @@ engine. Programs that link with the sqlite3 library can have SQL
 database access without running seperate RDBMS process. This extension
 allows you to access sqlite3 databases from within PHP.
 
-%description -l pl
-sqlite3 jest napisan± w C bibliotek± implementuj±c± osadzon± bazê SQL.
-Programy konsolidowane z sqlite3 mog± mieæ dostêp do bazy SQL bez
+%description -l pl.UTF-8
+sqlite3 jest napisanÄ… w C bibliotekÄ… implementujÄ…cÄ… osadzonÄ… bazÄ™ SQL.
+Programy konsolidowane z sqlite3 mogÄ… mieÄ‡ dostÄ™p do bazy SQL bez
 potrzeby uruchamiana kolejnego procesu RDBMS. To rozszerzenie pozwala
-na dostêp do baz SQLite z poziomu PHP.
+na dostÄ™p do baz SQLite z poziomu PHP.
 
 %prep
 %setup -q -c
