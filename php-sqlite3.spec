@@ -1,6 +1,6 @@
 %define		_modname	sqlite3
 Summary:	%{_modname} - database bindings
-Summary(pl.UTF-8):   %{_modname} - powiązania z bazą danych
+Summary(pl.UTF-8):	%{_modname} - powiązania z bazą danych
 Name:		php-%{_modname}
 Version:	0.4
 Release:	0.2
